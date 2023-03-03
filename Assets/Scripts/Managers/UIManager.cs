@@ -19,11 +19,11 @@ public class UIManager : MonoBehaviour
 
 
     public List<TMP_InputField> inputFields;
-    public List<RectTransform> inputFieldTransforms;
-    public float moveDuration = 1f;
-    public float delayBetweenMoves = 0.5f;
-    public float finalXPosition = 1640f;
-    public float finalYPosition = -2000f;
+    //public List<RectTransform> inputFieldTransforms;
+    //public float moveDuration = 1f;
+    //public float delayBetweenMoves = 0.5f;
+    //public float finalXPosition = 1640f;
+    //public float finalYPosition = -2000f;
 
     public Button GenerateButton;
     public Button HomeButton;
@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
         GenerateButtonCanvas.alpha = 0;
         ShareButtonCanvas.transform.localScale = Vector3.zero;
         ShareButtonCanvas.alpha = 0;
-        ShowForm();
+        //ShowForm();
         StartCoroutine(ShowGenerateButton());
     }
 
@@ -93,13 +93,13 @@ public class UIManager : MonoBehaviour
     }
 
     //Move form from the left side of the screen to the middle of the screen
-    public void ShowForm()
-    {
-        foreach (var inputFieldTransform in inputFieldTransforms)
-        {
-            MoveInputFieldX(inputFieldTransform, finalXPosition);
-        }
-    }
+    //public void ShowForm()
+    //{
+    //    foreach (var inputFieldTransform in inputFieldTransforms)
+    //    {
+    //        MoveInputFieldX(inputFieldTransform, finalXPosition);
+    //    }
+    //}
     IEnumerator ShowShareButtons()
     {
         yield return new WaitForSeconds(1f);
@@ -115,20 +115,20 @@ public class UIManager : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.transform.DOScale(1f, 1f).SetEase(Ease.OutBounce);
     }
-    public void RemoveForm()
-    {
-        if (UIManager.Instance.isFormValid)
-        {
-            foreach (var inputFieldTransform in inputFieldTransforms)
-            {
-                MoveInputFieldX(inputFieldTransform, 2 * finalXPosition);
-            }
-        }
-    }
-    private void MoveInputFieldX(RectTransform inputFieldTransform, float xPosition)
-    {
-        inputFieldTransform.DOAnchorPosX(xPosition, moveDuration).SetDelay(delayBetweenMoves);
-    }
+    //public void RemoveForm()
+    //{
+    //    if (UIManager.Instance.isFormValid)
+    //    {
+    //        foreach (var inputFieldTransform in inputFieldTransforms)
+    //        {
+    //            MoveInputFieldX(inputFieldTransform, 2 * finalXPosition);
+    //        }
+    //    }
+    //}
+    //private void MoveInputFieldX(RectTransform inputFieldTransform, float xPosition)
+    //{
+    //    inputFieldTransform.DOAnchorPosX(xPosition, moveDuration).SetDelay(delayBetweenMoves);
+    //}
     public void PanelFadeOut(CanvasGroup canvasGroup)
     {
         canvasGroup.alpha = 1f;
