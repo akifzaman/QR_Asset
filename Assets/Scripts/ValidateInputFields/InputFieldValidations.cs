@@ -10,7 +10,7 @@ public abstract class InputFieldValidations : MonoBehaviour
 
     [SerializeField] protected bool isFormInputFieldOkay = true;
     public List<string> RegularExpressions;
-
+    public List<GameObject> ErrorSigns;
     public abstract void ValidateInputFields();
 
     protected void ValidateFields()
@@ -18,7 +18,15 @@ public abstract class InputFieldValidations : MonoBehaviour
         for (int i = 0; i < InputFields.Count; i++)
         {
             isFormInputFieldOkay = (isFormInputFieldOkay) && Regex.IsMatch(InputFields[i].text, RegularExpressions[i]);
-            if (!isFormInputFieldOkay) break;
+            if (!isFormInputFieldOkay)
+            {
+                ErrorSigns[i].gameObject.SetActive(true);
+                //break;
+            }
+            else
+            {
+                ErrorSigns[i].gameObject.SetActive(false);
+            }
         }
         if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
         isFormInputFieldOkay = true;
