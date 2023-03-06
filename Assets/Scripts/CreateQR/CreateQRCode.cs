@@ -1,41 +1,21 @@
-﻿using UnityEngine;  
-using System.Collections;  
+﻿using UnityEngine;
 using ZXing; 
 using ZXing.QrCode;  
 using UnityEngine.UI;  
 using TMPro;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 
 public class CreateQRCode : MonoBehaviour  
-{   
-	public static Texture2D encoded;  
-	public string Lastresult;
+{
+    public string Lastresult;
+    public static Texture2D encoded;
     public Image QRCodePlaceHolder;
 
     public List<TMP_InputField> inputFields;
-
-    public GameObject Form;
-    public Button GenerateButton;
-
     public CanvasGroup QRCodeImageCanvas;
-    public CanvasGroup ShareButtonCanvasGroup;
-    public CanvasGroup GenerateAgainButtonCanvas;
-    public CanvasGroup BackButtonCanvas;
 
-    public Scene scene;
-
-    //public void Start()
-    //{
-    //    Lastresult = " ";
-    //}
-    // For generating raw text
-    public virtual string GenerateText()
-    {
-        return Lastresult;
-    }
+    public virtual string GenerateText() { return Lastresult; }
 
     // For generating QRCode
 	public static Color32[] Encode(string textForEncoding, int width, int height)  
@@ -66,27 +46,6 @@ public class CreateQRCode : MonoBehaviour
                 encoded.Apply();
             }
             QRCodePlaceHolder.sprite = Sprite.Create(encoded, new Rect(0, 0, encoded.width, encoded.height), Vector2.zero);
-        }
-    }
-
-    public void GenerateAgain()
-    {
-        scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-    public void GoToHome()
-    {
-        SceneManager.LoadScene("HomeScene");
-    }
-    public void StoreInput()
-    {
-        if (UIManager.Instance.isFormValid)
-        {
-            GenerateButton.gameObject.SetActive(false);
-            UIManager.Instance.FadeIn(QRCodeImageCanvas);
-            UIManager.Instance.FadeIn(ShareButtonCanvasGroup);
-            UIManager.Instance.FadeIn(GenerateAgainButtonCanvas);
-            UIManager.Instance.FadeIn(BackButtonCanvas);
         }
     }
 

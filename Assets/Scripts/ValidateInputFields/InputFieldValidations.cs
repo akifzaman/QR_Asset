@@ -21,7 +21,8 @@ public abstract class InputFieldValidations : MonoBehaviour
             if (!isFormInputFieldOkay)
             {
                 ErrorSigns[i].gameObject.SetActive(true);
-                //break;
+                Handheld.Vibrate();
+                break;
             }
             else
             {
@@ -30,5 +31,10 @@ public abstract class InputFieldValidations : MonoBehaviour
         }
         if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
         isFormInputFieldOkay = true;
+    }
+    public bool ValidateGeoInputFields(string input)
+    {
+        if (!string.IsNullOrEmpty(input)) return true;
+        return false;
     }
 }
