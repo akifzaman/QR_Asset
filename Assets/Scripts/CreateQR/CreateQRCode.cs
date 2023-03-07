@@ -37,7 +37,7 @@ public class CreateQRCode : MonoBehaviour
     {
         if (UIManager.Instance.isFormValid)
         {
-            encoded = new Texture2D(256, 256);
+            encoded = new Texture2D(312, 312);
             var textForEncoding = Lastresult;
             if (textForEncoding != null)
             {

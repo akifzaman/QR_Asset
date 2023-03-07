@@ -5,6 +5,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "unity-zxing": "file:.."
+    "unity-zxing": "github:shadowmint/unity-zxing"
   }
 }
