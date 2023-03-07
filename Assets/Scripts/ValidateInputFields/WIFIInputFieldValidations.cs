@@ -8,23 +8,25 @@ using UnityEngine.UI;
 public class WIFIInputFieldValidations : MonoBehaviour
 {
     public List<TMP_InputField> InputFields; // Reference to the InputField component
-
+    private string[] networkTypeOptions = { "WPA", "WEP", "No Encryption"};
     [SerializeField] private bool isFormInputFieldOkay = true;
     // Regex pattern for validating
-    //private string ssidPattern = @"^[a-zA-Z0-9_-]{1,32}$";
     private string ssidPattern = @"^[a-zA-Z0-9_$@-]{1,32}$";
     private string networkPattern = @"^(WPA|WEP|No Encryption)$";
     private string passwordPattern = @"^[a-zA-Z0-9_$@-]{1,32}$";
     private string hiddenPattern = @"^(true|false)$";
     public List<string> RegularExpressions;
     public List<GameObject> ErrorSigns;
-
+    public TMP_Dropdown dropdown;
     public Toggle toggle;
 
 
     public void Start()
     {
-        //toggle.onValueChanged.AddListener(OnToggleValueChanged);
+        dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
+        toggle.onValueChanged.AddListener(OnToggleValueChanged);
+        InputFields[1].text = "WPA";
+        InputFields[3].text = "false";
         RegularExpressions.Add(ssidPattern);
         RegularExpressions.Add(networkPattern);
         RegularExpressions.Add(passwordPattern);
@@ -32,24 +34,56 @@ public class WIFIInputFieldValidations : MonoBehaviour
     }
     public void ValidateInputFields()
     {
-        for (int i = 0; i < InputFields.Count; i++)
+        if (InputFields[1].text == "No Encryption")
         {
-            string ss = Regex.Replace(InputFields[i].text, @"\s", "");
-            isFormInputFieldOkay = (isFormInputFieldOkay) && Regex.IsMatch(ss, RegularExpressions[i]);
-            if (!isFormInputFieldOkay)
+            for (int i = 0; i < InputFields.Count; i++)
             {
-                ErrorSigns[i].gameObject.SetActive(true);
-                break;
+                if (i == 1)
+                {
+                    continue;
+                }
+                string ss = Regex.Replace(InputFields[i].text, @"\s", "");
+                isFormInputFieldOkay = (isFormInputFieldOkay) && Regex.IsMatch(ss, RegularExpressions[i]);
+                if (!isFormInputFieldOkay)
+                {
+                    ErrorSigns[i].gameObject.SetActive(true);
+                    break;
+                }
+                else
+                {
+                    ErrorSigns[i].gameObject.SetActive(false);
+                }
             }
-            else
+        }
+        else
+        {
+            for (int i = 0; i < InputFields.Count; i++)
             {
-                ErrorSigns[i].gameObject.SetActive(false);
+                string ss = Regex.Replace(InputFields[i].text, @"\s", "");
+                isFormInputFieldOkay = (isFormInputFieldOkay) && Regex.IsMatch(ss, RegularExpressions[i]);
+                if (!isFormInputFieldOkay)
+                {
+                    ErrorSigns[i].gameObject.SetActive(true);
+                    break;
+                }
+                else
+                {
+                    ErrorSigns[i].gameObject.SetActive(false);
+                }
             }
         }
         if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
         isFormInputFieldOkay = true;
     }
 
+    private void OnDropdownValueChanged(int value)
+    {
+        // Log a message to the console with the selected dropdown value
+        Debug.Log("Selected dropdown value: " + networkTypeOptions[value]);
+        InputFields[1].text = networkTypeOptions[value].ToString();
+        if (InputFields[1].text == "No Encryption") UIManager.Instance.isNoEncryption = true;
+        else{ UIManager.Instance.isNoEncryption = false; }
+    }
     public void OnToggleValueChanged(bool value)
     {
         Debug.Log("Toggle state changed: " + value);

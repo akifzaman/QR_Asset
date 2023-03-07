@@ -14,11 +14,28 @@ public class CreateWIFIQRCode : CreateQRCode
     public override string GenerateText()
     {
         Lastresult += "WIFI:";
-        for (int i = 0; i < inputFields.Count; i++)
+        if (UIManager.Instance.isNoEncryption)
         {
-            if (inputFields[i].text != null)
+            for (int i = 0; i < inputFields.Count; i++)
             {
-                Lastresult += (Tags[i] + inputFields[i].text + ";");
+                if (i == 1)
+                {
+                    continue;
+                }
+                if (inputFields[i].text != null)
+                {
+                    Lastresult += (Tags[i] + inputFields[i].text + ";");
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < inputFields.Count; i++)
+            {
+                if (inputFields[i].text != null)
+                {
+                    Lastresult += (Tags[i] + inputFields[i].text + ";");
+                }
             }
         }
         Lastresult += ";";

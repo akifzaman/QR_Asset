@@ -5692,7 +5692,7 @@ GameObject:
   - component: {fileID: 5093755485615333447}
   - component: {fileID: 5093755485615333444}
   m_Layer: 5
-  m_Name: ContactQRUIPanel
+  m_Name: ContactUIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
