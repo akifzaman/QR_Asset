@@ -450,14 +450,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToGeoQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: GeoLocationDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &293683441
@@ -1125,14 +1125,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToSMSQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SMSDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &682744659
@@ -1280,14 +1280,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToWIFIQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: WIFIDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &778679207
@@ -1815,14 +1815,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToTextQRGeneratioin
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TextDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1100029769
@@ -2131,14 +2131,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToEmailQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: EmailAddressDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1256338308
@@ -2286,14 +2286,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToContactQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ContactInfoDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1469212533
@@ -2485,14 +2485,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToURLQRGeneation
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: URLDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1672333243
@@ -2802,14 +2802,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1634202046}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: GoToPhoneQRGeneration
-        m_Mode: 1
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PhoneNumberDemoScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1885671125

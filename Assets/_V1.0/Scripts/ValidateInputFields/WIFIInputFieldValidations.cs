@@ -80,8 +80,8 @@ public class WIFIInputFieldValidations : MonoBehaviour
     private void OnDropdownValueChanged(int value)
     {
         InputFields[1].text = networkTypeOptions[value].ToString();
-        if (InputFields[1].text == "No Encryption") UIManager.Instance.isNoEncryption = true;
-        else{ UIManager.Instance.isNoEncryption = false; }
+        if (InputFields[1].text == "No Encryption") UIManager.Instance.isWIFINoEncryptionEnabled = true;
+        else{ UIManager.Instance.isWIFINoEncryptionEnabled = false; }
     }
     public void OnToggleValueChanged(bool value)
     {

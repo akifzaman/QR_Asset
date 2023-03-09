@@ -12,7 +12,7 @@ public class CreateWIFIQRCode : CreateQRCode
     public override string GenerateText()
     {
         Lastresult += "WIFI:";
-        if (UIManager.Instance.isNoEncryption)
+        if (UIManager.Instance.isWIFINoEncryptionEnabled)
         {
             for (int i = 0; i < inputFields.Count; i++)
             {

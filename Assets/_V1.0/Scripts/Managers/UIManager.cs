@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     
     public bool isFormValid = false;
-    public bool isNoEncryption = false;
+    public bool isWIFINoEncryptionEnabled = false;
     public GameObject Form;
     public Button HomeButton;
     public CanvasGroup QRCanvasGroup;
