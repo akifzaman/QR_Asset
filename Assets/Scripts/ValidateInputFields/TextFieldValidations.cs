@@ -16,6 +16,7 @@ public class TextFieldValidations : MonoBehaviour
         {
             isFormInputFieldOkay = false;
             ErrorSigns[0].gameObject.SetActive(true);
+            Handheld.Vibrate();
         }
         else
         {

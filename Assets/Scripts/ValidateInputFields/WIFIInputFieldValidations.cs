@@ -47,6 +47,7 @@ public class WIFIInputFieldValidations : MonoBehaviour
                 if (!isFormInputFieldOkay)
                 {
                     ErrorSigns[i].gameObject.SetActive(true);
+                    Handheld.Vibrate();
                     break;
                 }
                 else
@@ -64,6 +65,7 @@ public class WIFIInputFieldValidations : MonoBehaviour
                 if (!isFormInputFieldOkay)
                 {
                     ErrorSigns[i].gameObject.SetActive(true);
+                    Handheld.Vibrate();
                     break;
                 }
                 else

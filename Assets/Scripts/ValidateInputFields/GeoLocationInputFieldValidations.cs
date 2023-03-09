@@ -19,6 +19,7 @@ public class GeoLocationInputFieldValidations : MonoBehaviour
             if (!isFormInputFieldOkay)
             {
                 ErrorSigns[i].gameObject.SetActive(true);
+                Handheld.Vibrate();
                 break;
             }
             else
