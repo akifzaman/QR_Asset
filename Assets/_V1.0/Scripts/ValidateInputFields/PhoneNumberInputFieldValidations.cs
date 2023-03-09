@@ -1,11 +1,14 @@
-public class PhoneNumberInputFieldValidations : InputFieldValidations
+namespace QRCodeGenerator23
 {
-    // Regex pattern for validating phone number
-    private string phonePattern = @"^\+?[0-9]{0,3}[ -]?\(?[0-9]{3}\)?[ -]?[0-9]{3}[ -]?[0-9]{4}$";
-
-    public override void ValidateInputFields()
+    public class PhoneNumberInputFieldValidations : InputFieldValidations
     {
-        RegularExpressions.Add(phonePattern);
-        ValidateFields();
+        // Regex pattern for validating phone number
+        private string phonePattern = @"^\+?[0-9]{0,3}[ -]?\(?[0-9]{3}\)?[ -]?[0-9]{3}[ -]?[0-9]{4}$";
+
+        public override void ValidateInputFields()
+        {
+            RegularExpressions.Add(phonePattern);
+            ValidateFields();
+        }
     }
 }

@@ -1,15 +1,19 @@
 using UnityEngine;
 
-public class CreateGeoLocationQRCode : CreateQRCode
+namespace QRCodeGenerator23
 {
-    public void GenerateTextToConvert()
+    public class CreateGeoLocationQRCode : CreateQRCode
     {
-        if (UIManager.Instance.isFormValid) GenerateText();
-    }
-    public override string GenerateText()
-    {
-        Lastresult += ("geo:" + inputFields[0].text + "," + inputFields[1].text + "?q=" + inputFields[2].text);
-        Debug.Log(Lastresult);
-        return Lastresult;
+        public void GenerateTextToConvert()
+        {
+            if (UIManager.Instance.isFormValid) GenerateText();
+        }
+
+        public override string GenerateText()
+        {
+            Lastresult += ("geo:" + inputFields[0].text + "," + inputFields[1].text + "?q=" + inputFields[2].text);
+            Debug.Log(Lastresult);
+            return Lastresult;
+        }
     }
 }

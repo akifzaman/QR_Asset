@@ -3,36 +3,42 @@ using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 
-public abstract class InputFieldValidations : MonoBehaviour
+namespace QRCodeGenerator23
 {
-    public List<TMP_InputField> InputFields;
-    [SerializeField] protected bool isFormInputFieldOkay = true;
-    public List<string> RegularExpressions;
-    public List<GameObject> ErrorSigns;
-    public abstract void ValidateInputFields();
+    public abstract class InputFieldValidations : MonoBehaviour
+    {
+        public List<TMP_InputField> InputFields;
+        [SerializeField] protected bool isFormInputFieldOkay = true;
+        public List<string> RegularExpressions;
+        public List<GameObject> ErrorSigns;
+        public abstract void ValidateInputFields();
 
-    protected void ValidateFields()
-    {
-        for (int i = 0; i < InputFields.Count; i++)
+        protected void ValidateFields()
         {
-            isFormInputFieldOkay = (isFormInputFieldOkay) && Regex.IsMatch(InputFields[i].text, RegularExpressions[i]);
-            if (!isFormInputFieldOkay)
+            for (int i = 0; i < InputFields.Count; i++)
             {
-                ErrorSigns[i].gameObject.SetActive(true);
-                Handheld.Vibrate();
-                break;
+                isFormInputFieldOkay =
+                    (isFormInputFieldOkay) && Regex.IsMatch(InputFields[i].text, RegularExpressions[i]);
+                if (!isFormInputFieldOkay)
+                {
+                    ErrorSigns[i].gameObject.SetActive(true);
+                    Handheld.Vibrate();
+                    break;
+                }
+                else
+                {
+                    ErrorSigns[i].gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                ErrorSigns[i].gameObject.SetActive(false);
-            }
+
+            if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
+            isFormInputFieldOkay = true;
         }
-        if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
-        isFormInputFieldOkay = true;
-    }
-    public bool ValidateGeoInputFields(string input)
-    {
-        if (!string.IsNullOrEmpty(input)) return true;
-        return false;
+
+        public bool ValidateGeoInputFields(string input)
+        {
+            if (!string.IsNullOrEmpty(input)) return true;
+            return false;
+        }
     }
 }

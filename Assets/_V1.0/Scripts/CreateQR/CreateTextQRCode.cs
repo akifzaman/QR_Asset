@@ -1,17 +1,22 @@
 using TMPro;
 using UnityEngine;
 
-public class CreateTextQRCode : CreateQRCode
+namespace QRCodeGenerator23
 {
-    public TMP_InputField TextInputField;
-    public void GenerateTextToConvert()
+    public class CreateTextQRCode : CreateQRCode
     {
-        if (UIManager.Instance.isFormValid) GenerateText();
-    }
-    public override string GenerateText()
-    {
-        Lastresult += TextInputField.text;
-        Debug.Log(Lastresult);
-        return Lastresult;
+        public TMP_InputField TextInputField;
+
+        public void GenerateTextToConvert()
+        {
+            if (UIManager.Instance.isFormValid) GenerateText();
+        }
+
+        public override string GenerateText()
+        {
+            Lastresult += TextInputField.text;
+            Debug.Log(Lastresult);
+            return Lastresult;
+        }
     }
 }

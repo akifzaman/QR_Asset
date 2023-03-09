@@ -2,36 +2,41 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GeoLocationInputFieldValidations : MonoBehaviour
+namespace QRCodeGenerator23
 {
-    public List<TMP_InputField> InputFields;
-    public List<GameObject> ErrorSigns;
-
-    [SerializeField] private bool isFormInputFieldOkay = true;
-
-    public void ValidateInputFields()
+    public class GeoLocationInputFieldValidations : MonoBehaviour
     {
-        for (int i = 0; i < InputFields.Count; i++)
+        public List<TMP_InputField> InputFields;
+        public List<GameObject> ErrorSigns;
+
+        [SerializeField] private bool isFormInputFieldOkay = true;
+
+        public void ValidateInputFields()
         {
-            isFormInputFieldOkay = (isFormInputFieldOkay) && Validate(InputFields[i].text);
-            if (!isFormInputFieldOkay)
+            for (int i = 0; i < InputFields.Count; i++)
             {
-                ErrorSigns[i].gameObject.SetActive(true);
-                Handheld.Vibrate();
-                break;
+                isFormInputFieldOkay = (isFormInputFieldOkay) && Validate(InputFields[i].text);
+                if (!isFormInputFieldOkay)
+                {
+                    ErrorSigns[i].gameObject.SetActive(true);
+                    Handheld.Vibrate();
+                    break;
+                }
+                else
+                {
+                    ErrorSigns[i].gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                ErrorSigns[i].gameObject.SetActive(false);
-            }
-        }
-        if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
-        isFormInputFieldOkay = true;
 
-    }
-    public bool Validate(string input)
-    {
-        if (!string.IsNullOrEmpty(input)) return true;
-        return false;
+            if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
+            isFormInputFieldOkay = true;
+
+        }
+
+        public bool Validate(string input)
+        {
+            if (!string.IsNullOrEmpty(input)) return true;
+            return false;
+        }
     }
 }

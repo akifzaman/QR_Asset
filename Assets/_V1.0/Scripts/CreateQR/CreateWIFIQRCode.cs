@@ -1,43 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateWIFIQRCode : CreateQRCode
+namespace QRCodeGenerator23
 {
-    public List<string> Tags = new List<string> { "S:", "T:", "P:", "H:"};
+    public class CreateWIFIQRCode : CreateQRCode
+    {
+        public List<string> Tags = new List<string> { "S:", "T:", "P:", "H:" };
 
-    public void GenerateTextToConvert()
-    {
-        if (UIManager.Instance.isFormValid) GenerateText();
-    }
-    public override string GenerateText()
-    {
-        Lastresult += "WIFI:";
-        if (UIManager.Instance.isWIFINoEncryptionEnabled)
+        public void GenerateTextToConvert()
         {
-            for (int i = 0; i < inputFields.Count; i++)
+            if (UIManager.Instance.isFormValid) GenerateText();
+        }
+
+        public override string GenerateText()
+        {
+            Lastresult += "WIFI:";
+            if (UIManager.Instance.isWIFINoEncryptionEnabled)
             {
-                if (i == 1)
+                for (int i = 0; i < inputFields.Count; i++)
                 {
-                    continue;
-                }
-                if (inputFields[i].text != null)
-                {
-                    Lastresult += (Tags[i] + inputFields[i].text + ";");
+                    if (i == 1)
+                    {
+                        continue;
+                    }
+
+                    if (inputFields[i].text != null)
+                    {
+                        Lastresult += (Tags[i] + inputFields[i].text + ";");
+                    }
                 }
             }
-        }
-        else
-        {
-            for (int i = 0; i < inputFields.Count; i++)
+            else
             {
-                if (inputFields[i].text != null)
+                for (int i = 0; i < inputFields.Count; i++)
                 {
-                    Lastresult += (Tags[i] + inputFields[i].text + ";");
+                    if (inputFields[i].text != null)
+                    {
+                        Lastresult += (Tags[i] + inputFields[i].text + ";");
+                    }
                 }
             }
+
+            Lastresult += ";";
+            Debug.Log(Lastresult);
+            return Lastresult;
         }
-        Lastresult += ";";
-        Debug.Log(Lastresult);
-        return Lastresult;
     }
 }

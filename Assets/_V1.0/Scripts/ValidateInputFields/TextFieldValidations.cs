@@ -2,24 +2,29 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TextFieldValidations : MonoBehaviour
+namespace QRCodeGenerator23
 {
-    public List<TMP_InputField> InputFields;
-    [SerializeField] private bool isFormInputFieldOkay = true;
-    public List<GameObject> ErrorSigns;
-    public void ValidateInputFields()
+    public class TextFieldValidations : MonoBehaviour
     {
-        if (string.IsNullOrEmpty(InputFields[0].text))
+        public List<TMP_InputField> InputFields;
+        [SerializeField] private bool isFormInputFieldOkay = true;
+        public List<GameObject> ErrorSigns;
+
+        public void ValidateInputFields()
         {
-            isFormInputFieldOkay = false;
-            ErrorSigns[0].gameObject.SetActive(true);
-            Handheld.Vibrate();
+            if (string.IsNullOrEmpty(InputFields[0].text))
+            {
+                isFormInputFieldOkay = false;
+                ErrorSigns[0].gameObject.SetActive(true);
+                Handheld.Vibrate();
+            }
+            else
+            {
+                ErrorSigns[0].gameObject.SetActive(false);
+            }
+
+            if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
+            isFormInputFieldOkay = true;
         }
-        else
-        {
-            ErrorSigns[0].gameObject.SetActive(false);
-        }
-        if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
-        isFormInputFieldOkay = true;
     }
 }

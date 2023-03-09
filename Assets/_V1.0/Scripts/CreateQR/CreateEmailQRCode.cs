@@ -1,17 +1,22 @@
 using TMPro;
 using UnityEngine;
 
-public class CreateEmailQRCode : CreateQRCode
+namespace QRCodeGenerator23
 {
-    public TMP_InputField EmailAddressInputField;
-    public void GenerateTextToConvert()
+    public class CreateEmailQRCode : CreateQRCode
     {
-        if (UIManager.Instance.isFormValid) GenerateText();
-    }
-    public override string GenerateText()
-    {
-        if (EmailAddressInputField.text != null) Lastresult += ("mailto:" + EmailAddressInputField.text);
-        Debug.Log(Lastresult);
-        return Lastresult;
+        public TMP_InputField EmailAddressInputField;
+
+        public void GenerateTextToConvert()
+        {
+            if (UIManager.Instance.isFormValid) GenerateText();
+        }
+
+        public override string GenerateText()
+        {
+            if (EmailAddressInputField.text != null) Lastresult += ("mailto:" + EmailAddressInputField.text);
+            Debug.Log(Lastresult);
+            return Lastresult;
+        }
     }
 }

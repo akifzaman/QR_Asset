@@ -1,12 +1,15 @@
-public class EmailAddressInputFieldValidations : InputFieldValidations
+namespace QRCodeGenerator23
 {
-    // Regex pattern for validating email addresses
-    private string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-
-    public override void ValidateInputFields()
+    public class EmailAddressInputFieldValidations : InputFieldValidations
     {
-        RegularExpressions.Add(emailPattern);
-        ValidateFields();
+        // Regex pattern for validating email addresses
+        private string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+        public override void ValidateInputFields()
+        {
+            RegularExpressions.Add(emailPattern);
+            ValidateFields();
+        }
     }
 }
 
