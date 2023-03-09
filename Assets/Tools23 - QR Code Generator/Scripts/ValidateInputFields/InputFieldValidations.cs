@@ -34,11 +34,5 @@ namespace QRCodeGenerator23
             if (isFormInputFieldOkay) UIManager.Instance.isFormValid = true;
             isFormInputFieldOkay = true;
         }
-
-        public bool ValidateGeoInputFields(string input)
-        {
-            if (!string.IsNullOrEmpty(input)) return true;
-            return false;
-        }
     }
 }
