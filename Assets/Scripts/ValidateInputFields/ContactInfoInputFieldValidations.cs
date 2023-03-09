@@ -1,11 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Windows;
-
 public class ContactInfoInputFieldValidations : InputFieldValidations
 {
     // Regex pattern for validating contact information

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -10,7 +9,7 @@ public class WIFIInputFieldValidations : MonoBehaviour
     public List<TMP_InputField> InputFields; // Reference to the InputField component
     private string[] networkTypeOptions = { "WPA", "WEP", "No Encryption"};
     [SerializeField] private bool isFormInputFieldOkay = true;
-    // Regex pattern for validating
+    // Regex pattern for validating WIFI credentials
     private string ssidPattern = @"^[a-zA-Z0-9_$@-]{1,32}$";
     private string networkPattern = @"^(WPA|WEP|No Encryption)$";
     private string passwordPattern = @"^[a-zA-Z0-9_$@-]{1,32}$";
@@ -80,15 +79,12 @@ public class WIFIInputFieldValidations : MonoBehaviour
 
     private void OnDropdownValueChanged(int value)
     {
-        // Log a message to the console with the selected dropdown value
-        Debug.Log("Selected dropdown value: " + networkTypeOptions[value]);
         InputFields[1].text = networkTypeOptions[value].ToString();
         if (InputFields[1].text == "No Encryption") UIManager.Instance.isNoEncryption = true;
         else{ UIManager.Instance.isNoEncryption = false; }
     }
     public void OnToggleValueChanged(bool value)
     {
-        Debug.Log("Toggle state changed: " + value);
         InputFields[3].text = value.ToString().ToLower();
     }
 }

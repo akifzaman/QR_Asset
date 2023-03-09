@@ -1,12 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 
 public class GeoLocationInputFieldValidations : MonoBehaviour
 {
-    public List<TMP_InputField> InputFields; // Reference to the InputField component
+    public List<TMP_InputField> InputFields;
     public List<GameObject> ErrorSigns;
 
     [SerializeField] private bool isFormInputFieldOkay = true;

@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script can be used if the Contact QR code needs to be generated from VCard
 public class CreateContactInfoQRCodeVCard : CreateQRCode
 {
     public List<string> Tags = new List<string> { "N:", "ORG:", "TEL:", "URL:", "EMAIL:", "ADR:", "NOTE:" };

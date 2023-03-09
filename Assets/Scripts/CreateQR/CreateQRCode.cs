@@ -49,12 +49,14 @@ public class CreateQRCode : MonoBehaviour
         }
     }
 
+    //On back button click this function allows the user to edit the form
     public void EnableEditFunction()
     {
         Lastresult = "";
         QRCodeImageCanvas.alpha = 0;
     }
 
+    //used to share the image on web
     public void ShareImage()
     {
         Texture2D ss = encoded;

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class CreateContactInfoQRCodeMECard : CreateQRCode
     {
         if(UIManager.Instance.isFormValid) GenerateText();
     }
+    //The QR generation depends on the result of the GenerateText() method
     public override string GenerateText()
     {
         

@@ -2,12 +2,10 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class InputFieldValidations : MonoBehaviour
 {
-    public List<TMP_InputField> InputFields; // Reference to the InputField component
-
+    public List<TMP_InputField> InputFields;
     [SerializeField] protected bool isFormInputFieldOkay = true;
     public List<string> RegularExpressions;
     public List<GameObject> ErrorSigns;
